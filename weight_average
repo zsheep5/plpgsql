@@ -69,3 +69,8 @@ CREATE AGGREGATE w_average(numeric,numeric)
 	finalfunc = w_average_ff,
 	initcond = '{0,0}'
 );
+
+--sample use code
+create temporary table w_avg ( value_to_average numeric(20,10), value_weight numeric(20,10));
+insert into  w_avg values (10.5, 3), (20, .5), (15,0), (12,15);
+select w_average(value_weight,value_to_average ) from w_avg;
