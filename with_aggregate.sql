@@ -1,7 +1,7 @@
 --fairly complicated sql statement that was created to feed an R app,  each set of parent items had 200K to 500K child entries
 
 with outlimit as 
-		( select (max_abs-min_abs) * (", 0.90, ") + min_abs as outlimit, max_abs, min_abs ,id as outid 
+		( select (max_abs-min_abs) * 0.90 + min_abs as outlimit, max_abs, min_abs ,id as outid 
 	 		from test 
    			where id in (", keys2, " NULL)), 
 	thres as 
